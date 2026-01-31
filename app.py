@@ -44,6 +44,8 @@ def commit_sum():
     b = float(data["b"])
     
     # this is where we save the inputs in a db
+    #import db_manager
+    #db_manager.addIncomes(1, a, b)
 
     return jsonify({"message": "Saved"}), 200
     
