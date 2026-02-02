@@ -11,7 +11,7 @@ def home():
 def calcTax():
   """
   Expects JSON like: {"a": <number>, "b": <number>, "c": <number>}
-  Returns: {"taxIncome": <number>, "taxSavings": <number>, "taxBonus": <number>}
+  Returns: {"taxIncome": <number>, "taxSavings": <number>, "taxOnBonus": <number>}
   """
   data = request.get_json(silent=True)
 
@@ -31,9 +31,9 @@ def calcTax():
     tax_bonus = 20/100*c
 
     if b < 1000:
-      return jsonify({"taxIncome": tax_income, "taxSavings": 0, "taxBonus": tax_bonus}), 200
+      return jsonify({"taxIncome": tax_income, "taxSavings": 0, "taxOnBonus": tax_bonus}), 200
     
-    return jsonify({"taxIncome": tax_income, "taxSavings": 15/100*(b-1000), "taxBonus": tax_bonus}), 200
+    return jsonify({"taxIncome": tax_income, "taxSavings": 15/100*(b-1000), "taxOnBonus": tax_bonus}), 200
     
   except (ValueError, TypeError):
     return jsonify({"error4": "Both incomes must be numerical"}), 400

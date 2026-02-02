@@ -61,7 +61,7 @@
         feedback1.className = feedback2.className = feedback3.className = "result";
         feedback1.textContent = `Tax on income: ${res.data.taxIncome}`;
         feedback2.textContent = `Tax on savings: ${res.data.taxSavings}`;
-        feedback3.textContent = `Tax on bonus: ${res.data.taxBonus}`;
+        feedback3.textContent = `Tax on bonus: ${res.data.taxOnBonus}`;
       }).
       catch (err => displayError(err));
     }
