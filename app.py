@@ -1,7 +1,8 @@
 
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, session
 
 app = Flask(__name__)
+app.secret_key = "SECRET_KEY"
 
 @app.route("/", methods=["GET"])
 def home():
@@ -47,10 +48,10 @@ def commit_sum():
     a = float(data["a"])
     b = float(data["b"])
     c = float(data["c"])
-    
-    # this is where we save the inputs in a db
-    #import db_manager
-    #db_manager.addIncomes(1, a, b, c)
+
+    session["empl"] = a
+    session["savings"] = b
+    session["bonus"] = c
 
     return jsonify({"message": "Saved"}), 200
     
